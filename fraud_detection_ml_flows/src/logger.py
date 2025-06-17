@@ -1,8 +1,12 @@
 import logging
 import os
 
-def get_logger(name, log_file="logs/train.log"):
-    os.makedirs(os.path.dirname(log_file), exist_ok=True)
+def get_logger(name, log_file=None):
+    # os.makedirs(os.path.dirname(log_file), exist_ok=True)
+
+    log_dir = "/tmp/logs"
+    os.makedirs(log_dir, exist_ok=True)
+    log_file = os.path.join(log_dir, f"{name}.log")
 
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)
