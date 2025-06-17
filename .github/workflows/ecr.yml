@@ -41,3 +41,10 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+
+    - name: Deploy to Lambda
+      run: |
+          aws lambda update-function-code \
+           --function-name my-lambda-function \
+           --image-uri $ECR_REGISTRY/$ECR_REPOSITORY:latest
+ 
