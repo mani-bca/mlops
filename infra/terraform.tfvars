@@ -5,7 +5,7 @@ lambda_policy_arns = [
 ]
 #####lambda
 function_name = "ML-lambda"
-image_uri     = "676206899900.dkr.ecr.us-east-1.amazonaws.com/dev/lambda:latest"
+image_uri     = "676206899900.dkr.ecr.us-east-1.amazonaws.com/dev/lambda:hello"
 timeout       = 30
 memory_size   = 128
 
