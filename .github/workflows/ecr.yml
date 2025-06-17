@@ -45,6 +45,6 @@ jobs:
     - name: Deploy to Lambda
       run: |
           aws lambda update-function-code \
-           --function-name my-lambda-function \
+           --function-name ML-lambda \
            --image-uri $ECR_REGISTRY/$ECR_REPOSITORY:latest
  
