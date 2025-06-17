@@ -1,7 +1,8 @@
 region                  = "us-east-1"
 lambda_role_name = "lambda-ML-role"
 lambda_policy_arns = [
-  "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+  "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+  "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 ]
 #####lambda
 function_name = "ML-lambda"
