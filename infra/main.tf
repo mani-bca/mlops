@@ -1,5 +1,5 @@
 module "lambda_iam_role" {
-  source = "../modules/4iam_role"
+  source = "../modules/iam_role"
 
   role_name          = var.lambda_role_name
   policy_arns        = var.lambda_policy_arns
@@ -32,7 +32,7 @@ module "lambda_iam_role" {
 }
 
 module "lambda_docker" {
-  source = "../modules/5lamdadocker"
+  source = "../modules/lamdadocker"
 
   function_name         = var.function_name
   role_arn              = module.lambda_iam_role.iam_role_arn
