@@ -44,8 +44,11 @@ module "lambda_docker" {
   tags                  = var.tags
 }
 
-module "api_gateway" {
-  source               = "../modules/api_gateway"
-  lambda_function_name = module.lambda_docker.function_name
-  region               = "us-east-1"
+module "apigateway" {
+    source = "./modules/api_gateway"
+    api_name = "hellowrold-test"
+    route_key = "GET /hello"
+    lambda_invoke_arn = module.lambda.invoke_arn
+    lambda_arn = module.lambda.arn
+
 }
