@@ -1,21 +1,14 @@
 import logging
-import os
+import io
 
-def get_logger(name, log_file=None):
-    # os.makedirs(os.path.dirname(log_file), exist_ok=True)
-
-    log_dir = "/tmp/logs"
-    os.makedirs(log_dir, exist_ok=True)
-    log_file = os.path.join(log_dir, f"{name}.log")
-
+def get_logger(name, stream=None):
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)
 
-    file_handler = logging.FileHandler(log_file)
-    formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(name)s:%(message)s')
-    file_handler.setFormatter(formatter)
-
-    if not logger.hasHandlers():
-        logger.addHandler(file_handler)
+    if not logger.handlers:
+        handler = logging.StreamHandler(stream or io.StringIO())
+        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
 
     return logger
