@@ -47,4 +47,5 @@ jobs:
           aws lambda update-function-code \
            --function-name ML-lambda \
            --image-uri $ECR_REGISTRY/$ECR_REPOSITORY:latest
+           --region us-east-1
  
