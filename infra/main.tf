@@ -45,7 +45,7 @@ module "lambda_docker" {
 }
 
 module "api_gateway" {
-  source               = "./modules/api_gateway"
+  source               = "../modules/api_gateway"
   lambda_function_name = module.lambda_docker.function_name
   region               = "us-east-1"
 }
