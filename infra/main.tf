@@ -43,3 +43,9 @@ module "lambda_docker" {
   environment_variables = var.environment_variables
   tags                  = var.tags
 }
+
+module "api_gateway" {
+  source               = "./modules/api_gateway"
+  lambda_function_name = module.lambda_docker.function_name
+  region               = "us-east-1"
+}
