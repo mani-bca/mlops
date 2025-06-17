@@ -5,7 +5,7 @@ import os
 from sklearn.linear_model import LogisticRegression
 from src.evaluate import evaluate_model
 
-def train_model(X_train, X_test, y_train, y_test, scaler, logger, model_output_dir="models/"):
+def train_model(X_train, X_test, y_train, y_test, scaler, logger, model_output_dir="/tmp/models/"):
     os.makedirs(model_output_dir, exist_ok=True)
 
     with mlflow.start_run():
