@@ -45,7 +45,7 @@ module "lambda_docker" {
 }
 
 module "apigateway" {
-    source = "./modules/api_gateway"
+    source = "../modules/api_gateway"
     api_name = "hellowrold-test"
     route_key = "GET /hello"
     lambda_invoke_arn = module.lambda_docker.lambda_invoke_arn
