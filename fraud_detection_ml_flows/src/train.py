@@ -9,8 +9,12 @@ def train_model(X_train, X_test, y_train, y_test, scaler, logger, model_output_d
     # ✅ Ensure model output directory exists
     os.makedirs(model_output_dir, exist_ok=True)
 
+    # ✅ Ensure MLflow tracking directory exists
+    mlflow_tracking_dir = "/tmp/mlruns"
+    os.makedirs(mlflow_tracking_dir, exist_ok=True)
+
     # ✅ Set MLflow tracking URI to a writable directory in Lambda
-    mlflow.set_tracking_uri("file:/tmp/mlruns")
+    mlflow.set_tracking_uri(f"file:{mlflow_tracking_dir}")
 
     # ✅ Set experiment explicitly to avoid default creation in read-only path
     mlflow.set_experiment("fraud_detection")
