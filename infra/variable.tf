@@ -1,0 +1,53 @@
+variable "region" {
+  description = "AWS region"
+  type        = string
+  default     = "us-east-1"
+}
+variable "tags" {
+  description = "Additional tags for all resources"
+  type        = map(string)
+  default     = {}
+}
+#######################iam
+variable "lambda_role_name" {
+  description = "Name of the IAM resource"
+  type        = string
+}
+
+variable "lambda_policy_arns" {
+  description = "List of managed policies to attach"
+  type        = list(string)
+}
+#################lambda
+variable "function_name" {
+  type = string
+}
+
+#variable "role_arn" {
+#  type = string
+#}
+
+variable "image_uri" {
+  type = string
+}
+
+variable "timeout" {
+  type = number
+  default = 10
+}
+
+variable "memory_size" {
+  type = number
+  default = 128
+}
+
+variable "architectures" {
+  type = list(string)
+  default = ["x86_64"]
+}
+
+variable "environment_variables" {
+  type = map(string)
+  default = {}
+}
+
