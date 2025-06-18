@@ -41,7 +41,7 @@ def run_pipeline():
 def lambda_handler(event, context): # GET /?key=metrics/metrics.json
     try:
         s3 = boto3.client("s3")
-        obj = s3.get_object(Bucket="your-bucket-name", Key="metrics/metrics.json")
+        obj = s3.get_object(Bucket="lambda-code-bucket-ddd", Key="metrics/metrics.json")
         metrics = json.loads(obj["Body"].read().decode("utf-8"))
         return {
             "statusCode": 200,
