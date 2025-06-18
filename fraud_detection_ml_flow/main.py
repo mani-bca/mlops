@@ -15,7 +15,7 @@ def run_pipeline():
 
     # Load data (local or from S3)
     s3 = boto3.client("s3")
-    obj = s3.get_object(Bucket="##add your bucket name", Key="upload/transaction_samples.csv")
+    obj = s3.get_object(Bucket="lambda-code-bucket-ddd", Key="upload/transaction_samples.csv")
     df = pd.read_csv(io.BytesIO(obj["Body"].read()))
     logger.info("Data loaded from S3.")
 
@@ -29,7 +29,7 @@ def run_pipeline():
     # Save metrics to S3
     s3 = boto3.client("s3")
     s3.put_object(
-        Bucket="your-bucket-name",
+        Bucket="lambda-code-bucket-ddd",
         Key="metrics/metrics.json",
         Body=json.dumps(metrics),
         ContentType="application/json"
