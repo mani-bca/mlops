@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: fraud_detection_ml_flow
+        working-directory: fraud_detection_ml_flows
 
     steps:
     - name: Checkout code
