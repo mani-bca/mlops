@@ -1,5 +1,5 @@
 region                  = "us-east-1"
-lambda_role_name = "lambda-ML-role"
+lambda_role_name = "lambda-ML-train-role"
 lambda_policy_arns = [
   "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
   "arn:aws:iam::aws:policy/AmazonS3FullAccess"
@@ -7,8 +7,8 @@ lambda_policy_arns = [
 #####lambda
 function_name = "ML-lambda"
 image_uri     = "676206899900.dkr.ecr.us-east-1.amazonaws.com/dev/lambda:latest"
-timeout       = 120
-memory_size   = 512
+timeout       = 30
+memory_size   = 128
 
 architectures = ["x86_64"]
 
